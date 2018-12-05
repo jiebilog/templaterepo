@@ -1,0 +1,8 @@
+{
+  "method": "grok",
+  "name": "syslogpamsession",
+  "description": " Parse syslog PAM message",
+  "id": "p7gpxqi4sfh1c",
+  "params": {"expression": "%{SYSLOGBASE} (?=%{GREEDYDATA:message})%{WORD:pam_module}\\(%{DATA:pam_caller}\\): session %{WORD:pam_session_state} for user %{USERNAME:username}(?: by %{GREEDYDATA:pam_by})?"},
+  "tags": ["Syslog", "PAM"]
+}

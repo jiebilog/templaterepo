@@ -1,0 +1,8 @@
+{
+  "method": "grok",
+  "name": "syslogline",
+  "description": " Parse comment syslog message",
+  "id": "p7gpxqi4zx62p",
+  "params": {"expression": "%{SYSLOGBASE2} %{GREEDYDATA:message}"},
+  "tags": ["Syslog"]
+}

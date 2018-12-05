@@ -1,0 +1,48 @@
+{
+  "name": "Collector Logs",
+  "binding": {
+    "script": {
+      "ver": "JsonV1",
+      "code": {
+        "equals": [
+          {
+            "collectorAttr": "system.platform"
+          },
+          "linux"
+        ]
+      }
+    },
+    "policy": "Bind_Collector"
+  },
+  "id": "mt7lvr4vyzpr0g",
+  "type": "DataMosaic/Collector",
+  "collecting": {
+    "eventSeparator": {
+      "auto": true
+    },
+    "mechanism": "local_file",
+    "severityMapping": "logfile",
+    "pathExpression": "${installDir}/logs/*.log"
+  },
+  "parsing": [
+    {
+      "calcEventTime": {
+        "method": "auto"
+      }
+    },
+    {
+      "regex": [
+        "$message",
+        "\\d+-\\d+-\\d+ \\d+:\\d+:\\d+,\\d+ \\[([a-zA-Z]+)\\] .*",
+        "severity"
+      ]
+    },
+    {
+      "$_severity": "severity"
+    }
+  ],
+  "tags": [
+    "collector",
+    "Predefined Templates"
+  ]
+}

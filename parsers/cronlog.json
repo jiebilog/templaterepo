@@ -1,0 +1,8 @@
+{
+  "method": "grok",
+  "name": "cronlog",
+  "description": " Parse syslog cron message",
+  "id": "p7gpxqi4zx62o",
+  "params": {"expression": "%{SYSLOGBASE} \\(%{USER:user}\\) %{CRON_ACTION:action} \\(%{DATA:message}\\)"},
+  "tags": ["Syslog", "Cron"]
+}
